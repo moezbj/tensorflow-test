@@ -3,57 +3,26 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport"
+    content="width=device-width" />
   <style>
     * {
       margin: 0;
       padding: 0;
     }
+
+    body {
+      width: 100vw;
+      height: calc(100vh - 47px);
+    }
   </style>
 </head>
 
 <body>
-  <select id="cameraSelect"></select>
-  <video id="video" autoplay></video>
+  <iframe src="pattern.html"
+    style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:1200;">
 
-  <script>
-    async function getCameras() {
-      const devices = await navigator.mediaDevices.enumerateDevices();
-      const videoDevices = devices.filter(device => device.kind === 'videoinput');
-      const cameraSelect = document.getElementById('cameraSelect');
-
-      videoDevices.forEach(device => {
-        const option = document.createElement('option');
-        option.value = device.deviceId;
-        option.text = device.label || `Camera ${cameraSelect.length + 1}`;
-        cameraSelect.appendChild(option);
-      });
-    }
-
-    async function setupCamera(deviceId) {
-      const constraints = {
-        video: {
-          deviceId: deviceId ? { exact: deviceId } : undefined,
-          width: { ideal: 1280 },
-          height: { ideal: 720 },
-          aspectRatio: 1.7777777778,
-          facingMode: { exact: 'environment' } // Use rear camera
-
-        }
-      };
-
-      const stream = await navigator.mediaDevices.getUserMedia(constraints);
-      const video = document.getElementById('video');
-      video.srcObject = stream;
-    }
-
-    document.getElementById('cameraSelect').addEventListener('change', (event) => {
-      setupCamera(event.target.value);
-    });
-
-    getCameras(); // Populate camera options
-  </script>
-
+  </iframe>
 </body>
 
 </html>
