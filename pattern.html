@@ -177,7 +177,7 @@
                     video: {
                         width: { ideal: 1920 },
                         height: { ideal: 1080 },
-                        facingMode: "environment",
+                        facingMode: { exact: "environment" },
                         aspectRatio: 1.7777777778,
                         frameRate: { ideal: 60 }
                     }
@@ -204,7 +204,7 @@
             }
             ctx.drawImage(video, 0, 0, 420, 420);
             if (useFront) ctx.restore();
-            setTimeout(drawCameraIntoCanvas, 30);  // Limit to ~33fps
+            setTimeout(drawCameraIntoCanvas, 60);  // Limit to ~33fps
         }
 
         // Load hand pose model
@@ -252,18 +252,18 @@
                     let imgWidth = 100;
                     let imgHeight = 100;
 
-                    let fingerWidth = 25
-                    let fingerHeight = 20
+                    let fingerWidth = 45
+                    let fingerHeight = 40
                     if (hand.handedness === "Left") {
                         // right hand
-                        overlayCtx.drawImage(image, palmStartCenter[0] / 2000, palmStartCenter[1] / 700, imgWidth, imgHeight);
+                        overlayCtx.drawImage(image, palmStartCenter[0] / 2000, palmStartCenter[1] / 1000, imgWidth, imgHeight);
 
                         overlayCtx.drawImage(imageIndexFinger, indexStartFinger[0] / 1400, indexStartFinger[1] / 600, fingerWidth, fingerHeight);
                         overlayCtx.drawImage(imageIndexFinger, middleStartFinger[0] / 1400, middleStartFinger[1] / 600, fingerWidth, fingerHeight);
                         overlayCtx.drawImage(imageIndexFinger, ringStartFinger[0] / 1400, ringStartFinger[1] / 600, fingerWidth, fingerHeight);
 
                     } else {
-                        overlayCtx.drawImage(image2, palmStartCenter[0] / 2000, palmStartCenter[1] / 700, imgWidth, imgHeight);
+                        overlayCtx.drawImage(image2, palmStartCenter[0] / 2000, palmStartCenter[1] / 1000, imgWidth, imgHeight);
 
                         overlayCtx.drawImage(imageIndexFinger, indexStartFinger[0] / 1200, indexStartFinger[1] / 600, fingerWidth, fingerHeight);
                         overlayCtx.drawImage(imageIndexFinger, middleStartFinger[0] / 1400, middleStartFinger[1] / 600, fingerWidth, fingerHeight);
