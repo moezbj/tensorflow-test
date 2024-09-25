@@ -10,7 +10,6 @@
       margin: 0;
       padding: 0;
     }
-
   </style>
 </head>
 
@@ -38,8 +37,9 @@
           deviceId: deviceId ? { exact: deviceId } : undefined,
           width: { ideal: 1280 },
           height: { ideal: 720 },
-
-          advanced: [{ zoom: 1.0 }] // Set zoom level to 1.0 (no zoom)
+          aspectRatio: 1.7777777778,
+          advanced: [{ zoom: 1.0 }], // Set zoom level to 1.0 (no zoom)
+          facingMode: { exact: 'environment' } // Use rear camera
 
         }
       };
