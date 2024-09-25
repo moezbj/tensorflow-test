@@ -252,22 +252,22 @@
                     let imgWidth = 100;
                     let imgHeight = 100;
 
-                    let fingerWidth = 45
-                    let fingerHeight = 45
+                    let fingerWidth = 25
+                    let fingerHeight = 20
                     if (hand.handedness === "Left") {
                         // right hand
-                        overlayCtx.drawImage(image, palmStartCenter[0], palmStartCenter[1], imgWidth, imgHeight);
+                        overlayCtx.drawImage(image, palmStartCenter[0] / 2000, palmStartCenter[1] / 700, imgWidth, imgHeight);
 
-                        overlayCtx.drawImage(imageIndexFinger, indexStartFinger[0] / 520, indexStartFinger[1] / 570, fingerWidth, fingerHeight);
-                        overlayCtx.drawImage(imageIndexFinger, middleStartFinger[0] / 520, middleStartFinger[1] / 570, fingerWidth, fingerHeight);
-                        overlayCtx.drawImage(imageIndexFinger, ringStartFinger[0] / 520, ringStartFinger[1] / 570, fingerWidth, fingerHeight);
+                        overlayCtx.drawImage(imageIndexFinger, indexStartFinger[0] / 1400, indexStartFinger[1] / 600, fingerWidth, fingerHeight);
+                        overlayCtx.drawImage(imageIndexFinger, middleStartFinger[0] / 1400, middleStartFinger[1] / 600, fingerWidth, fingerHeight);
+                        overlayCtx.drawImage(imageIndexFinger, ringStartFinger[0] / 1400, ringStartFinger[1] / 600, fingerWidth, fingerHeight);
 
                     } else {
-                        overlayCtx.drawImage(image2, palmStartCenter[0] / 800, palmStartCenter[1] / 550, imgWidth, imgHeight);
+                        overlayCtx.drawImage(image2, palmStartCenter[0] / 2000, palmStartCenter[1] / 700, imgWidth, imgHeight);
 
-                        overlayCtx.drawImage(imageIndexFinger, indexStartFinger[0] / 540, indexStartFinger[1] / 570, fingerWidth, fingerHeight);
-                        overlayCtx.drawImage(imageIndexFinger, middleStartFinger[0] / 550, middleStartFinger[1] / 540, fingerWidth, fingerHeight);
-                        overlayCtx.drawImage(imageIndexFinger, ringStartFinger[0] / 540, ringStartFinger[1] / 540, fingerWidth, fingerHeight);
+                        overlayCtx.drawImage(imageIndexFinger, indexStartFinger[0] / 1200, indexStartFinger[1] / 600, fingerWidth, fingerHeight);
+                        overlayCtx.drawImage(imageIndexFinger, middleStartFinger[0] / 1400, middleStartFinger[1] / 600, fingerWidth, fingerHeight);
+                        overlayCtx.drawImage(imageIndexFinger, ringStartFinger[0] / 1400, ringStartFinger[1] / 600, fingerWidth, fingerHeight);
 
 
                     }
