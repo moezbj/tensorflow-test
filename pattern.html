@@ -132,7 +132,7 @@
             console.log("Image hand loaded successfully");
         };
         let showKeyPoints = true;
-        let useFront = false;
+        let useFront = true;
         // Load image index-finger
         let imageIndexFinger = new Image()
         imageIndexFinger.src = "./models/finger.png";
@@ -142,15 +142,7 @@
         function startVideo() {
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 let mode = useFront ? "user" : "environment";
-                navigator.mediaDevices.getUserMedia({
-                    audio: false, video: {
-                        width: { ideal: 1280 },
-                        height: { ideal: 720 },
-                        facingMode: "environment",
-                        aspectRatio: 1.7777777778,
-                        frameRate: { ideal: 60 }
-                    }
-                }).then(function (stream) {
+                navigator.mediaDevices.getUserMedia({ audio: false, video: { width: 720, height: 480, facingMode: mode } }).then(function (stream) {
                     video.addEventListener("loadedmetadata", loadModel);
                     video.srcObject = stream;
                     video.play();
