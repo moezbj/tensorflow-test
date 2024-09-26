@@ -10,7 +10,6 @@ var aiEnabled = false;
 var fps = 60;
 var border = 0; // mouse border
 
-
 var facingMode = "environment"; // Can be 'user' or 'environment' to access back or front camera (NEAT!)
 var constraints = {
   audio: false,
@@ -47,15 +46,19 @@ window.onload = function () {
 };
 
 function timerCallback() {
+  const startTime = performance.now();
   if (isReady()) {
     setResolution();
     ctx1.drawImage(video, 0, 0, c1.width, c1.height);
     // setBorder();
     if (aiEnabled) {
-      // lockCheck();
       ai();
     }
   }
+  const endTime = performance.now();
+  const executionTime = endTime - startTime;
+  // Adjust fps based on execution time
+  fps = Math.max(10, 1000 / executionTime); // Set a minimum fps of 10
   setTimeout(timerCallback, fps);
 }
 
@@ -125,7 +128,7 @@ function setFakeMouse(x, y) {
   img.onload = () => {
     console.log("Image hand loaded successfully");
   };
-  ctxMouse.drawImage(img, x *0.85 , y *0.65, img.width, img.height);
+  ctxMouse.drawImage(img, x * 0.85, y * 0.65, img.width, img.height);
 }
 
 // draw mouse border
