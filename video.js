@@ -7,11 +7,11 @@ const c1 = document.getElementById("c1");
 const ctx1 = c1.getContext("2d");
 var cameraAvailable = false;
 var aiEnabled = false;
-var fps = 16;
+var fps = 30;
 var border = 0; // mouse border
 
 
-var facingMode = "user"; // Can be 'user' or 'environment' to access back or front camera (NEAT!)
+var facingMode = "environment"; // Can be 'user' or 'environment' to access back or front camera (NEAT!)
 var constraints = {
   audio: false,
   video: {
