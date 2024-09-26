@@ -10,7 +10,7 @@ var aiEnabled = false;
 var fps = 16;
 var border = 0; // mouse border
 
-/* Setting up the constraint */
+
 var facingMode = "user"; // Can be 'user' or 'environment' to access back or front camera (NEAT!)
 var constraints = {
   audio: false,
@@ -19,7 +19,6 @@ var constraints = {
   },
 };
 
-/* Stream it to video element */
 camera();
 function camera() {
   if (!cameraAvailable) {
